@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'wolf', sans-serif;
+}
+
+.hero-title, 
+.hero-text,
+.account-content {
+    color: var(--text-primary);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    background-color: var(--background-primary);
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 100%;
+
+    margin: auto;
+}
+
+.main-content {
+    background-color: var(--background-secondary);
+
+    min-width: 920px;
+    max-width: min-content;
+    border-radius: 12px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.account-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 64px;
+
+    min-width: 100%;
+
+    padding: 36px 0;
+}
+
+.account-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-content {
+    background-color: var(--accent-primary);
+
+    color: var(--text-tertiary);
+    font-size: 1.04rem;
+    font-weight: bold;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    transition: all 250ms ease-in-out;
+}
+
+.account-content:hover {
+    cursor: pointer;
+
+    background-color: var(--accent-primary-hover);
+
+    transform: scale(1.05);
+}
+
+a {
+    text-decoration: none;
+}
+
+.account-text {
+    text-align: center;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    gap: 16px;
+
+    min-width: 100%;
+
+    padding: 36px 0;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.hero-text {
+    max-width: 720px;
+}
+
+@font-face {
+    font-family: 'wolf';
+    src: url('assets/fonts/wolf.ttf') format('truetype');
+}
+
+:root {
+    --background-primary: #121212; /* A very dark gray, almost black */
+    --background-secondary: #1e1e1e; /* A slightly lighter dark gray */
+    --divider-background: #FFF;
+    --text-primary: #ffffff; /* White */
+    --text-secondary: #cccccc; /* Light gray */
+    --text-tertiary: #121212;
+    --accent-primary: #007bff; /* Example: Blue */
+    --accent-primary-hover: #0056b3; /* Example: Darker Blue */
+    --accent-secondary: #6c757d; /* Example: Gray */
+    --accent-secondary-hover: #545b62; /* Example: Darker Gray */
+    --border-color: #333333; /* A dark gray for subtle dividers */
+    --color-success: #4caf50;
+    --color-success-darker: #388e3c;
+    --color-error: #f44336;
+    --color-error-darker: #d32f2f;
+    --color-warning: #ff9800;
+    --color-warning-darker: #f57c00;
+    --color-info: #2196f3;
+    --color-info-darker: #1976d2;
+}

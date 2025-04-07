@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster:X Register</title>
+    <link rel="stylesheet" href="form-style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-wrapper">
+            <div class="main-content">
+                <div class="hero-section">
+                    <div class="hero-title">Poster:X</div>
+                    <div class="hero-text">
+                        <p>Create Account</p>
+                        <p>Join the Poster:X community!</p>
+                    </div>
+                    <div class="hero-link-section">
+                        <a href="../index.html">
+                            <div class="hero-link">
+                                <p>Return to Hub</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="form-section">
+                    <form action="../api/register-user.php" method="POST" onsubmit="return false;">
+                        <div class="error-text" id="general-error"></div>
+                        <div class="form-group" id="form-text-group">
+                            <div class="input-group">
+                                <input type="text" class="text-field" id="username" name="username" placeholder="Username" oninput="validateUsername()">
+                                <div class="error-text" id="username-error"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" class="text-field" id="email" name="email" placeholder="Email" oninput="validateEmail()">
+                                <div class="error-text" id="email-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="form-password-group" style="display: none;">
+                            <div class="input-group">
+                                <input type="password" class="text-field" id="password" name="password" placeholder="Password" oninput="validatePassword()">
+                                <div class="input-icon" onclick="togglePasswordVisibility('password')">
+                                    <img src="../assets/icons/ic-open-eye.png" alt="show">
+                                </div>
+                                <div class="error-text" id="password-error"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="password" class="text-field" id="confirm-password" name="confirm_password" placeholder="Retype Password" oninput="validateConfirmPassword()">
+                                <div class="input-icon" onclick="togglePasswordVisibility('confirm-password')">
+                                    <img src="../assets/icons/ic-open-eye.png" alt="show">
+                                </div>
+                                <div class="error-text" id="confirm-password-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-link">
+                            <div class="form-link-group" style="margin-left: auto;">
+                                <a href="recover.html">Forgot Password?</a>
+                            </div>
+                            <div class="form-link-group">
+                                <p>Already have an account?</p>
+                                <a href="login.html">Log In</a>
+                            </div>
+                        </div>
+
+                        <input type="submit" id="submit" name="submit" value="Sign Up" disabled>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="register-script.js"></script>
+</body>
+</html>

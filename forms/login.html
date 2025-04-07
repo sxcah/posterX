@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster:X Login</title>
+    <link rel="stylesheet" href="form-style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-wrapper">
+            <div class="main-content">
+                <div class="hero-section">
+                    <div class="hero-title">Poster:X</div>
+                    <div class="hero-text">
+                        <p>Login</p>
+                        <p>Continue to Poster:X</p>
+                    </div>
+                    <div class="hero-link-section">
+                        <a href="../index.html">
+                            <div class="hero-link">
+                                <p>Return to Hub</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="divider"></div>
+    
+                <div class="form-section">
+                    <form action="../api/login-user.php" method="POST" onsubmit="return false;">
+                        <div class="error-text" id="general-error"></div>
+                        <div class="input-group">
+                            <input type="text" class="text-field" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="text-field" id="password" name="password" placeholder="Password">
+                            <div class="input-icon" onclick="togglePasswordVisibility('password')">
+                                <img src="../assets/icons/ic-open-eye.png" alt="show">
+                            </div>
+                            <div class="error-text" id="password-error"></div>
+                        </div>
+                
+                        <div class="form-link">
+                            <div class="form-link-group" style="margin-left: auto;">
+                                <a href="recover.html">Forgot Password?</a>
+                            </div>
+                            <div class="form-link-group">
+                                <p>Don't have an account?</p>
+                                <a href="register.html">Sign Up</a>
+                            </div>
+                        </div>
+                
+                        <input type="submit" id="submit" name="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="login-script.js"></script>
+</body>
+</html>

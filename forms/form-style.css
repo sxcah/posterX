@@ -1,0 +1,252 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'redhat', sans-serif;
+
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    background-color: var(--background-primary);
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 100%;
+
+    margin: auto;
+}
+
+.main-content {
+    background-color: var(--background-secondary);
+
+    min-width: 920px;
+    max-width: min-content;
+    min-height: 240px;
+
+    border-radius: 12px;
+
+    margin: 0 auto;
+    padding: 36px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    gap: 12px;
+
+    color: var(--text-primary);
+}
+
+.hero-link-section {
+    margin-top: auto;
+
+    width: fit-content;
+}
+
+.hero-link {
+    background-color: var(--accent-primary);
+
+    transition: all 250ms ease-in-out;
+
+    width: fit-content;
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+}
+
+.hero-link p {
+    color: var(--text-tertiary);
+}
+
+.hero-link:hover {
+    cursor: pointer;
+
+    background-color: var(--accent-primary-hover);
+
+    transform: scale(1.05);
+}
+
+.hero-title {
+    font-size: 2rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hero-text p:nth-child(1) {
+    font-size:1.6rem;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    background-color: var(--background-secondary); 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-link {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-size: .8rem;
+}
+
+.form-link-group p {
+    color: var(--text-secondary);
+}
+
+.form-link-group a {
+    color: var(--accent-primary);
+
+    transition: all 250ms ease-in-out;
+}
+
+.error-text {
+    color: var(--color-error-darker);
+
+    margin-left: 24px;
+
+    font-size: 0.8rem;
+
+    width: calc(128px * 1.6);
+}
+
+.input-group .input-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 84%;
+
+    transform: translateY(-50%);
+
+    width: 24px;
+    height: 24px;
+
+}
+
+.form-link-group a:hover {
+    color: var(--accent-primary-hover);
+
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+
+    position: relative;
+}
+
+.text-field {
+    padding: 12px;
+    border: 1px solid var(--border-color); 
+    border-radius: 4px;
+
+    background-color: transparent; 
+
+    color: var(--text-primary); 
+
+    font-family: inherit; 
+    font-size: 1rem;
+
+    width: 240px;
+}
+
+.text-field::placeholder {
+    color: var(--text-secondary); 
+}
+
+.text-field:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+#submit {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--accent-primary); 
+    color: var(--text-tertiary); 
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit:hover {
+    background-color: var(--accent-primary-hover);
+}
+
+#submit:focus {
+    outline: none;
+    box-shadow: 0 0 6px var(--accent-primary-hover);
+}
+
+
+@font-face {
+    font-family: 'wolf';
+    src: url('../assets/fonts/wolf.ttf') format('truetype');
+
+    font-family: 'redhat';
+    src: url('../assets/fonts/redhat.ttf') format('truetype');
+}
+
+:root {
+    --background-primary: #121212; /* A very dark gray, almost black */
+    --background-secondary: #1e1e1e; /* A slightly lighter dark gray */
+    --divider-background: #FFF;
+    --text-primary: #ffffff; /* White */
+    --text-secondary: #cccccc; /* Light gray */
+    --text-tertiary: #121212;
+    --accent-primary: #007bff; /* Example: Blue */
+    --accent-primary-hover: #0056b3; /* Example: Darker Blue */
+    --accent-secondary: #6c757d; /* Example: Gray */
+    --accent-secondary-hover: #545b62; /* Example: Darker Gray */
+    --border-color: #333333; /* A dark gray for subtle dividers */
+    --color-success: #4caf50;
+    --color-success-darker: #388e3c;
+    --color-error: #f44336;
+    --color-error-darker: #d32f2f;
+    --color-warning: #ff9800;
+    --color-warning-darker: #f57c00;
+    --color-info: #2196f3;
+    --color-info-darker: #1976d2;
+}
