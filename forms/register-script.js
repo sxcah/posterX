@@ -9,10 +9,14 @@ const passwordInput = document.getElementById('password');
 const passwordError = document.getElementById('password-error');
 const confirmPasswordInput = document.getElementById('confirm-password');
 const confirmPasswordError = document.getElementById('confirm-password-error');
+const contactNumInput = document.getElementById('contact-number');
+const contactNumError = document.getElementById('contact-number-error');
+
 const generalError = document.getElementById('general-error');
 
 let isUsernameValid = false;
 let isEmailValid = false;
+let isContactNum = false;
 
 function validateUsername() {
     const username = usernameInput.value.trim();
@@ -27,6 +31,24 @@ function validateUsername() {
     } else {
         usernameError.textContent = "";
         isUsernameValid = true;
+    }
+    togglePasswordGroupVisibility();
+    enableDisableSubmit();
+}
+
+function validateContactNum() {
+    const contactNum = contactNumInput.value.trim();
+    const maxChar = 11;
+
+    if (contactNum === "") {
+        contactNumError.textContent = "";
+        isContactNum = fakse;
+    } else if (contactNum.length < maxChar) {
+        contactNumError.textContent = "Contact Number is invalid must have 11 characters.";
+        isContactNum = false;
+    } else {
+        contactNumError.textContent = "";
+        isContactNum = true;
     }
     togglePasswordGroupVisibility();
     enableDisableSubmit();
@@ -51,7 +73,7 @@ function validateEmail() {
 }
 
 function togglePasswordGroupVisibility() {
-    if (isUsernameValid && isEmailValid) {
+    if (isUsernameValid && isEmailValid && isContactNum) {
         passwordGroup.style.display = 'flex';
     } else {
         passwordGroup.style.display = 'none';
@@ -97,12 +119,12 @@ function validateForm() {
     validateUsername();
     validateEmail();
     const isConfirmPasswordValid = (passwordGroup.style.display === 'none') || validateConfirmPassword();
-    return isUsernameValid && isEmailValid && isConfirmPasswordValid;
+    return isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum;
 }
 
 function enableDisableSubmit() {
     const isConfirmPasswordValid = (passwordGroup.style.display === 'none') || validateConfirmPassword();
-    submitButton.disabled = !(isUsernameValid && isEmailValid && isConfirmPasswordValid);
+    submitButton.disabled = !(isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum);
 }
 
 function togglePasswordVisibility(inputId) {
@@ -164,3 +186,4 @@ usernameInput.addEventListener('input', validateUsername);
 emailInput.addEventListener('input', validateEmail);
 passwordInput.addEventListener('input', validatePassword);
 confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+contactNumInput.addEventListener('input', validateContactNum);

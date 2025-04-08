@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve data from the POST request
     $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
     $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
+    $contact_num = isset($_POST["contact-number"]) ? trim($_POST["email"]) : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
@@ -26,6 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors["email"] = "Email is required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors["email"] = "Invalid email format.";
+    }
+
+    // Validate contact number
+    if (empty($contact_num)) {
+        $errors["contact-number"] = "Contact number is required.";
+    } elseif (strlen($contact_num) < 11) {
+        $errors["contact-number"] = "Contact number must be at least 11 digits.";
     }
 
     // Validate password
@@ -63,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Insert email into user_information
-            $stmt_info = $conn->prepare("INSERT INTO user_information (email) VALUES (?)");
-            $stmt_info->bind_param("s", $email);
+            $stmt_info = $conn->prepare("INSERT INTO user_information (email, contact_num) VALUES (?, ?)");
+            $stmt_info->bind_param("ss", $email, $contact_num);
 
             if ($stmt_info->execute()) {
                 $userID = $conn->insert_id; // Get the auto-generated userID
