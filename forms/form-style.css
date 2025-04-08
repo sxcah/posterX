@@ -148,19 +148,6 @@ form {
     width: calc(128px * 1.6);
 }
 
-.input-icon {
-    position: relative;
-
-    top: 50%;
-    left: 84%;
-
-    transform: translateY(-50%);
-
-    width: 24px;
-    height: 24px;
-
-}
-
 .form-link-group a:hover {
     color: var(--accent-primary-hover);
 
@@ -170,9 +157,7 @@ form {
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 8px; 
-
-    position: relative;
+    gap: 8px;
 }
 
 .text-field {
@@ -197,6 +182,25 @@ form {
 .text-field:focus {
     outline: none;
     border-color: var(--accent-primary);
+}
+
+.text-field-group {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+}
+
+.input-icon {
+    margin: auto;
+
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-150%, -50%);
+
+    width: var(--icon-width);
+    height: var(--icon-height);
 }
 
 #submit {
@@ -249,4 +253,6 @@ form {
     --color-warning-darker: #f57c00;
     --color-info: #2196f3;
     --color-info-darker: #1976d2;
+    --icon-height: 24px;
+    --icon-width: 24px;
 }

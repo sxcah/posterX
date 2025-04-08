@@ -29,17 +29,18 @@
     
                 <div class="form-section">
                     <form action="../api/login-user.php" method="POST" onsubmit="return false;">
-                        <div class="error-text" id="general-error"></div>
                         <div class="input-group">
                             <input type="text" class="text-field" id="username" name="username" placeholder="Username">
                         </div>
                         <div class="input-group">
-                            <input type="password" class="text-field" id="password" name="password" placeholder="Password">
-                            <div class="input-icon" onclick="togglePasswordVisibility('password')">
-                                <img src="../assets/icons/ic-open-eye.png" alt="show">
+                            <div class="text-field-group">
+                                <input type="password" class="text-field" id="password" name="password" placeholder="Password">
+                                <div class="input-icon" onclick="togglePasswordVisibility('password')">
+                                    <img src="../assets/icons/ic-open-eye.png" alt="show">
+                                </div>
                             </div>
-                            <div class="error-text" id="password-error"></div>
                         </div>
+                        <div class="error-text" id="general-error"></div>
                 
                         <div class="form-link">
                             <div class="form-link-group" style="margin-left: auto;">

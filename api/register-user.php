@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fname = isset($_POST["first-name"]) ? trim($_POST["first-name"]) : "";
     $lname = isset($_POST["last-name"]) ? trim($_POST["last-name"]) : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
-    $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
+    $confirm_password = isset($_POST["confirm-password"]) ? $_POST["confirm-password"] : "";
 
     $errors = array();
 
