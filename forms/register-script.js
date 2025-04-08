@@ -11,12 +11,18 @@ const confirmPasswordInput = document.getElementById('confirm-password');
 const confirmPasswordError = document.getElementById('confirm-password-error');
 const contactNumInput = document.getElementById('contact-number');
 const contactNumError = document.getElementById('contact-number-error');
+const firstNameInput = document.getElementById('first-name');
+const lastNameInput = document.getElementById('last-name');
+const firstNameError = document.getElementById('first-name-error');
+const lastNameError = document.getElementById('last-name-error');
 
 const generalError = document.getElementById('general-error');
 
 let isUsernameValid = false;
 let isEmailValid = false;
 let isContactNum = false;
+let isFirstNameValid = false;
+let isLastNameValid = false;
 
 function validateUsername() {
     const username = usernameInput.value.trim();
@@ -38,17 +44,61 @@ function validateUsername() {
 
 function validateContactNum() {
     const contactNum = contactNumInput.value.trim();
-    const maxChar = 11;
+    const contactNumRegex = /^[0-9]+$/;
+    const minVal = 10;
+    const maxVal = 12;
 
     if (contactNum === "") {
         contactNumError.textContent = "";
-        isContactNum = fakse;
-    } else if (contactNum.length < maxChar) {
+        isContactNum = false;
+    } else if (contactNum.length <= minVal) {
         contactNumError.textContent = "Contact Number is invalid must have 11 characters.";
+        isContactNum = false;
+    } else if (contactNum.length >= maxVal) {
+        contactNumError.textContent = "Contact Number is invalid must have 11 characters.";
+        isContactNum = false;
+    } else if (!contactNumRegex.test(contactNum)){
+        contactNumError.textContent = "Invalid. Can only accept integers."
         isContactNum = false;
     } else {
         contactNumError.textContent = "";
         isContactNum = true;
+    }
+    togglePasswordGroupVisibility();
+    enableDisableSubmit();
+}
+
+function validateFirstName() {
+    const firstName = firstNameInput.value.trim();
+    const firstNameRegex = /^[a-zA-Z]+$/;
+
+    if (firstName === "") {
+        firstNameError.textContent = "";
+        isFirstNameValid = false;
+    } else if (!firstNameRegex.test(firstName)) {
+        firstNameError.textContent = "First Name can only contain letters.";
+        isFirstNameValid = false;
+    } else {
+        firstNameError.textContent = "";
+        isFirstNameValid = true;
+    }
+    togglePasswordGroupVisibility();
+    enableDisableSubmit();
+}
+
+function validateLastName() {
+    const lastName = lastNameInput.value.trim();
+    const lastNameRegex = /^[a-zA-Z]+$/;
+
+    if (lastName === "") {
+        lastNameError.textContent = "";
+        isLastNameValid = false;
+    } else if (!lastNameRegex.test(lastName)) {
+        lastNameError.textContent = "Last Name can only contain letters.";
+        isLastNameValid = false;
+    } else {
+        lastNameError.textContent = "";
+        isLastNameValid = true;
     }
     togglePasswordGroupVisibility();
     enableDisableSubmit();
@@ -73,7 +123,7 @@ function validateEmail() {
 }
 
 function togglePasswordGroupVisibility() {
-    if (isUsernameValid && isEmailValid && isContactNum) {
+    if (isUsernameValid && isEmailValid && isContactNum && isFirstNameValid && isLastNameValid) {
         passwordGroup.style.display = 'flex';
     } else {
         passwordGroup.style.display = 'none';
@@ -119,12 +169,12 @@ function validateForm() {
     validateUsername();
     validateEmail();
     const isConfirmPasswordValid = (passwordGroup.style.display === 'none') || validateConfirmPassword();
-    return isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum;
+    return isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum && isFirstNameValid && isLastNameValid;
 }
 
 function enableDisableSubmit() {
     const isConfirmPasswordValid = (passwordGroup.style.display === 'none') || validateConfirmPassword();
-    submitButton.disabled = !(isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum);
+    submitButton.disabled = !(isUsernameValid && isEmailValid && isConfirmPasswordValid && isContactNum && isFirstNameValid && isLastNameValid);
 }
 
 function togglePasswordVisibility(inputId) {
@@ -187,3 +237,5 @@ emailInput.addEventListener('input', validateEmail);
 passwordInput.addEventListener('input', validatePassword);
 confirmPasswordInput.addEventListener('input', validateConfirmPassword);
 contactNumInput.addEventListener('input', validateContactNum);
+firstNameInput.addEventListener('input', validateFirstName);
+lastNameInput.addEventListener('input', validateLastName);

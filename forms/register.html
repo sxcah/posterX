@@ -30,7 +30,7 @@
                 <div class="form-section">
                     <form action="../api/register-user.php" method="POST" onsubmit="return false;">
                         <div class="error-text" id="general-error"></div>
-                        <div class="form-group" id="form-text-group">
+                        <div class="form-group" id="form-text-group" style="flex-direction: row;">
                             <div class="input-group">
                                 <input type="text" class="text-field" id="username" name="username" placeholder="Username" oninput="validateUsername()">
                                 <div class="error-text" id="username-error"></div>
@@ -39,12 +39,24 @@
                                 <input type="email" class="text-field" id="email" name="email" placeholder="Email" oninput="validateEmail()">
                                 <div class="error-text" id="email-error"></div>
                             </div>
+                        </div>
+                        <div class="form-group" id="form-text-groups">
                             <div class="input-group">
                                 <input type="text" class="text-field" id="contact-number" name="contact-number" placeholder="Contact number" oninput="validateContactNum()">
                                 <div class="error-text" id="contact-number-error"></div>
                             </div>
                         </div>
-                        <div class="form-group" id="form-password-group" style="display: none;">
+                        <div class="form-group" id="form-text-group" style="flex-direction: row;">
+                            <div class="input-group">
+                                <input type="text" class="text-field" id="first-name" name="first-name" placeholder="First Name" oninput="validateFirstName()">
+                                <div class="error-text" id="first-name-error"></div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="text-field" id="last-name" name="last-name" placeholder="Last Name" oninput="validateLastName()">
+                                <div class="error-text" id="last-name-error"></div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="form-password-group" style="display: none; flex-direction: row;">
                             <div class="input-group">
                                 <input type="password" class="text-field" id="password" name="password" placeholder="Password" oninput="validatePassword()">
                                 <div class="input-icon" onclick="togglePasswordVisibility('password')">

@@ -148,8 +148,8 @@ form {
     width: calc(128px * 1.6);
 }
 
-.input-group .input-icon {
-    position: absolute;
+.input-icon {
+    position: relative;
 
     top: 50%;
     left: 84%;

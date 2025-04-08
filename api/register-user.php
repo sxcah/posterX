@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
     $email = isset($_POST["email"]) ? trim($_POST["email"]) : "";
     $contact_num = isset($_POST["contact-number"]) ? trim($_POST["email"]) : "";
+    $fname = isset($_POST["first-name"]) ? trim($_POST["first-name"]) : "";
+    $lname = isset($_POST["last-name"]) ? trim($_POST["last-name"]) : "";
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     $confirm_password = isset($_POST["confirm_password"]) ? $_POST["confirm_password"] : "";
 
@@ -20,6 +22,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors["username"] = "Username is required.";
     } elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
         $errors["username"] = "Username can only contain letters, numbers, and underscores.";
+    }
+
+    // Validate First Name and Last Name
+    if (empty($fname)) {
+        $errors["first-name"] = "FIrst Name is required.";
+    } elseif (!preg_match("/^[a-zA-Z]+$/", $fname)) {
+        $errors["first-name"] = "First Name can only contain letters.";
+    }
+
+    if (empty($lname)) {
+        $errors["last-name"] = "First Name is required.";
+    } elseif (!preg_match("/^[a-zA-Z]+$/", $lname)) {
+        $errors["last-name"] = "Last Name can only contain letters.";
     }
 
     // Validate email
@@ -71,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Insert email into user_information
-            $stmt_info = $conn->prepare("INSERT INTO user_information (email, contact_num) VALUES (?, ?)");
-            $stmt_info->bind_param("ss", $email, $contact_num);
+            $stmt_info = $conn->prepare("INSERT INTO user_information (email, contact_num, `first-name`, `last-name`) VALUES (?, ?, ?, ?)");
+            $stmt_info->bind_param("ssss", $email, $contact_num, $fname, $lname);
 
             if ($stmt_info->execute()) {
                 $userID = $conn->insert_id; // Get the auto-generated userID
